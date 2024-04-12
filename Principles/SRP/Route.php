@@ -1,6 +1,6 @@
 <?php
 
-namespace SOLID;
+namespace SOLID\SRP;
 
 class Route
 {

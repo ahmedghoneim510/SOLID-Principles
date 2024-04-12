@@ -1,8 +1,8 @@
 <?php
 
-use SOLID\Route;
-use \SOLID\SRP\Bus;
+use SOLID\SRP\Bus;
 use SOLID\SRP\Driver;
+use SOLID\SRP\Route;
 
 require 'vendor/autoload.php';
 

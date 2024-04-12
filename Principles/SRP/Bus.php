@@ -2,8 +2,6 @@
 
 namespace SOLID\SRP;
 
-use SOLID\Route;
-
 class Bus
 {
     private $bus_number;
