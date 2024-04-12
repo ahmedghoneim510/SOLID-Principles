@@ -1,9 +1,12 @@
 <?php
 
-use SOLID\SRP\Bus;
-use SOLID\SRP\Driver;
-use SOLID\SRP\Route;
-
+use SOLID\OCP\Bus;
+use SOLID\OCP\Car;
+use SOLID\OCP\Driver;
+use SOLID\OCP\Plane;
+use SOLID\OCP\Route;
+use SOLID\OCP\Trip;
+use SOLID\OCP\MoveOnRoad;
 require 'vendor/autoload.php';
 
 
@@ -11,31 +14,26 @@ $bus =new Bus(1);
 $mohammed=new Driver('Mohammed', 30, 123456, 'Cairo');
 $route=new Route('Cairo','Alexandria',200);
 $route2=new Route('Cairo','Aswan',1000);
-$bus->setNumberPassenger(50);
-$bus->setColor('Red');
-$bus->setSpeed(100);
-$bus->setDoors(2);
-$bus->setDriver($mohammed);
+$plane=new Plane();
+$car=new Car();
 
-$bus->AddRoute($route);
-$bus->AddRoute($route2);
-echo "<pre>";
-print_r($bus->getDriver());
-echo "</pre>";
-echo "<br>";
-echo $bus->getNumberPassenger();
-echo "<br>";
-echo $bus->getColor();
-echo "<br>";
-echo $bus->getSpeed();
-echo "<br>";
-echo $bus->getDoors();
-echo "<br>";
-echo $bus->getBusNumber();
-echo "<pre>";
-print_r($bus->getRoute());
-echo "</pre>";
-$bus->move();
+
+$trip=new Trip($car, 1, 100, 5);
+//$car->setNumberPassenger(50);
+$car->setColor('Red');
+//$car->setSpeed(100);
+//$car->setDoors(2);
+$car->setDriver($mohammed);
+$car->AddRoute($route);
+$car->AddRoute($route2);
+
+$car->setMovable(new MoveOnRoad());
+
+
+echo $trip->move();
+
+
+
 
 
 ?>
